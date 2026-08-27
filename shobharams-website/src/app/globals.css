@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  /* === EXACT SHOBHARAM'S LOGO COLOR PALETTE === */
+  /* Primary: Deep Forest Green from logo oval border */
+  --color-primary: #1B4D30;
+  --color-primary-dark: #0F3320;
+  --color-primary-light: #2A6B43;
+  
+  /* Accent: Warm Gold from logo decorative elements */
+  --color-gold: #C8952A;
+  --color-gold-light: #E8C46A;
+  --color-gold-muted: #F0DC9A;
+
+  /* Background: Warm Cream/Beige from brand posters */
+  --color-cream: #F5EDD7;
+  --color-cream-light: #FBF6EC;
+  --color-cream-dark: #EAD9B8;
+
+  /* Text Colors */
+  --color-text-dark: #1C2B1F;
+  --color-text-muted: #4A6352;
+
+  /* Font stack from CSS variables set in layout */
+  --font-serif: var(--font-serif), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-sans), "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+::selection {
+  background-color: #C8952A;
+  color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============ MICRO-ANIMATIONS ============ */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes spinSlowReverse {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+@keyframes bounceFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes bounceFloatDelayed {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 149, 42, 0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(200, 149, 42, 0); }
+}
+
+/* ============ UTILITY ANIMATION CLASSES ============ */
+.animate-spin-slow         { animation: spinSlow 40s linear infinite; }
+.animate-spin-slow-reverse { animation: spinSlowReverse 30s linear infinite; }
+.animate-bounce-float      { animation: bounceFloat 5s ease-in-out infinite; }
+.animate-bounce-float-d    { animation: bounceFloat 5s ease-in-out infinite 2.5s; }
+.animate-fade-slide-up     { animation: fadeSlideUp 0.5s ease-out forwards; }
+.animate-fadeIn            { animation: fadeIn 0.25s ease-out forwards; }
+.animate-pulse-glow        { animation: pulseGlow 2.5s ease-in-out infinite; }
+
+/* ============ PREMIUM GOLD SHIMMER TEXT ============ */
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #C8952A 0%,
+    #F0DC9A 40%,
+    #C8952A 60%,
+    #E8C46A 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ============ PREMIUM CARD HOVER ============ */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px -12px rgba(27, 77, 48, 0.2), 0 0 0 2px rgba(200, 149, 42, 0.25);
+}
+
+/* ============ DECORATIVE DIVIDER ============ */
+.divider-gold {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #C8952A;
+}
+.divider-gold::before,
+.divider-gold::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C8952A, transparent);
+}
+
+/* ============ GREEN LEAF PATTERN BG ============ */
+.bg-leaf-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231B4D30' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
